@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cake Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .header {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .cake-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        .cake-container img {
+            width: 150px;
+            height: 150px;
+        }
+        .order-section {
+            margin: 20px;
+        }
+        input[type="number"] {
+            width: 50px;
+            margin: 5px;
+        }
+        #total-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: green;
+        }
+        .order-btn {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="header">SCHOOL MANAGEMENT SYSTEM CAKE SHOP</div>
+    
+    <div class="cake-container">
+        <div>
+            <img src="img/img1.jpg" alt="Color Cake">
+            <p>Color Cake – Rs. 300</p>
+        </div>
+        <div>
+            <img src="img/img2.webp" alt="Brown Cake">
+            <p>Brown Cake – Rs. 330</p>
+        </div>
+        <div>
+            <img src="img/img3.jpg" alt="Milley Cake">
+            <p>Milley Cake – Rs. 250</p>
+        </div>
+        <div>
+            <img src="img/img4.webp" alt="Black Forest Cake">
+            <p>Black Forest Cake – Rs. 350</p>
+        </div>
+    </div>
+    
+    <div class="order-section">
+        <h2>Order Cake</h2>
+        <p>Color Cake (Quantity): <input type="number" id="color-cake" min="0" value="0"></p>
+        <p>Brown Cake (Quantity): <input type="number" id="brown-cake" min="0" value="0"></p>
+        <p>Milley Cake (Quantity): <input type="number" id="milley-cake" min="0" value="0"></p>
+        <p>Black Forest Cake (Quantity): <input type="number" id="black-forest-cake" min="0" value="0"></p>
+        <button class="order-btn" onclick="calculateTotal()">Place Order</button>
+    </div>
+    
+    <div>
+        <h3>Purchase Order Bill!!</h3>
+        <p>Total Price: <span id="total-price">Rs. 0</span></p>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            let colorCakeQty = parseInt($("#color-cake").val()) || 0;
+            let brownCakeQty = parseInt($("#brown-cake").val()) || 0;
+            let milleyCakeQty = parseInt($("#milley-cake").val()) || 0;
+            let blackForestQty = parseInt($("#black-forest-cake").val()) || 0;
+
+            let totalPrice = (colorCakeQty * 300) + (brownCakeQty * 330) + (milleyCakeQty * 250) + (blackForestQty * 350);
+
+            $("#total-price").text("Rs. " + totalPrice);
+        }
+    </script>
+</body>
+</html>
